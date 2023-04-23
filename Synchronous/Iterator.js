@@ -150,3 +150,89 @@ for(const num of oddNumbers) {
     console.log(num);
 }
 
+//yield keyword 
+
+//[variable_name] = yield [expression];
+
+//expression specifies the value to return from a generator function via iteration protocol
+
+//variable_name stores the optional value passed to the next() method of the iterator object
+
+
+function* foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+let f = foo();
+
+console.log(f.next());
+
+//returning undefined 
+
+
+function* bar() {
+    yield;
+}
+
+let b = bar();
+
+console.log(b.next());
+
+//passing value to the next method 
+//yield keyword is an expression that evaluates the argument passed to the next() method 
+
+
+function* generate1() {
+    let result = yield;
+    console.log(`result is ${result}`);
+}
+
+let g = generate1();
+
+console.log(g.next());
+
+console.log(g.next(1000));
+
+
+function* baz() {
+    let arr = [yield, yield];
+
+    console.log(arr);
+}
+
+var z  = baz();
+
+console.log(z.next());
+console.log(z.next(1));
+console.log(z.next(2));
+
+
+//using yield to return an array
+
+
+function* yieldArray() {
+    yield 1;
+    yield [20, 30, 40];
+}
+
+let y = yieldArray();
+
+console.log(y.next());
+console.log(y.next());
+console.log(y.next());
+
+//using yield to return individual elements of an array
+
+function* yieldArrayElements() {
+    yield 1;
+    yield* [20, 30, 40];
+}
+
+let a = yieldArrayElements();
+
+console.log(a.next());
+console.log(a.next());
+console.log(a.next());
+console.log(a.next());
