@@ -28,3 +28,14 @@ assert.deepEqual(
 
 //here put(value)  value means {type: "PRODUCTS_RECEIVED", products: products}
 
+//we pass the fake response to Generator via its next method 
+//Outside middleware environment we have total control over the Generator 
+//we Simulate by mocking results and resuming the Generator with them 
+
+
+
+//triggering side effects from inside a Saga is always done by yielding some declarative effect 
+
+//Saga compose all effects together to implement desired control flow 
+//sequence of yielded effects by putting the yields one after another 
+//
